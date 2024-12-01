@@ -36,3 +36,21 @@ body {
         background-color: #0056b3;
         transform: scale(1.05);
     }
+
+    /* Button Styling */
+    #addTextBtn {
+        padding: 12px 25px;
+        margin-top: 30px;
+        cursor: pointer;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    #addTextBtn:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+
