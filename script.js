@@ -51,4 +51,15 @@ function drag(e) {
       draggedText.style.top = `${e.clientY - offsetY}px`;
     }
 }
+
+// Function to stop dragging
+function stopDrag() {
+    if (isDragging) {
+      isDragging = false;
+      draggedText.style.cursor = 'grab';  // Reset cursor back to grab
+      saveState();
+      draggedText = null;  // Clear dragged text reference
+    }
+}
+  
   
