@@ -101,5 +101,29 @@ body {
         transform: scale(1.05);
     }
 
+    /* Draggable Text Styling */
+    .draggable {
+        cursor: grab;
+        display: inline-block;
+        padding: 12px 18px;
+        margin: 6px;
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .draggable:focus {
+        outline: 2px solid #3b9ae1;
+    }
+    .draggable:hover {
+        background-color: #e6e6e6;
+        transform: scale(1.02);
+    }
+    .draggable:active {
+        cursor: grabbing;
+        background-color: #dcdcdc;
+    }
+
+
 
 
