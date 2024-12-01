@@ -74,4 +74,32 @@ body {
         box-shadow: 0 0 8px rgba(59, 154, 225, 0.5);
     }
 
+    /* Style Options - Fixed Bottom Bar */
+    .style-options {
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 15px;
+        background-color: #fff;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    }
+    .style-options button {
+        padding: 12px 25px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        font-size: 16px;
+    }
+    .style-options button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+
 
