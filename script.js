@@ -62,4 +62,11 @@ function stopDrag() {
     }
 }
   
+// Undo functionality
+document.getElementById('undoBtn').addEventListener('click', () => {
+    if (currentStateIndex > 0) {
+      currentStateIndex--;
+      restoreState();
+    }
+});
   
