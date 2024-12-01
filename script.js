@@ -77,4 +77,30 @@ document.getElementById('redoBtn').addEventListener('click', () => {
       restoreState();
     }
 });
+
+// Function to save the current state of the page
+function saveState() {
+    // Save the current content and all elements' states (position, text, styles)
+    textHistory = textHistory.slice(0, currentStateIndex + 1);
+    
+    const textArea = document.getElementById('textArea');
+    const elements = [...textArea.getElementsByClassName('draggable')];
+    
+    // Save the state of each draggable element
+    const currentState = elements.map(el => ({
+      content: el.textContent, // Text content
+      position: { x: el.style.left, y: el.style.top }, // Position
+      style: {
+        fontWeight: el.style.fontWeight,
+        fontStyle: el.style.fontStyle,
+        textDecoration: el.style.textDecoration,
+        fontSize: el.style.fontSize
+      }
+    }));
+    
+    // Add the state to history
+    textHistory.push(currentState);
+    currentStateIndex++;
+}
+  
   
