@@ -31,3 +31,16 @@ document.getElementById('addTextBtn').addEventListener('click', () => {
   // Save the new state
   saveState();
 });
+
+// Function to start dragging the text
+function startDrag(e, element) {
+    if (e.button !== 0) return;  // Only handle left mouse button
+    isDragging = true;
+    draggedText = element;
+    
+    // Calculate the offset of the mouse from the top-left corner of the element
+    offsetX = e.clientX - draggedText.offsetLeft;
+    offsetY = e.clientY - draggedText.offsetTop;
+    draggedText.style.cursor = 'grabbing';  // Change cursor to grabbing
+  }
+  
