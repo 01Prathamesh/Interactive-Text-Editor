@@ -103,4 +103,36 @@ function saveState() {
     currentStateIndex++;
 }
   
+// Function to restore a specific state
+function restoreState() {
+    const state = textHistory[currentStateIndex];
+    const textArea = document.getElementById('textArea');
+    
+    // Clear the current content in the text area
+    textArea.innerHTML = '';
+    
+    // Re-create each draggable text box based on the saved state
+    state.forEach(elState => {
+      const textDiv = document.createElement('div');
+      textDiv.contentEditable = true;
+      textDiv.textContent = elState.content;
+      textDiv.classList.add('draggable');
+      
+      // Set the position and styles
+      textDiv.style.position = 'absolute';
+      textDiv.style.left = elState.position.x;
+      textDiv.style.top = elState.position.y;
+      textDiv.style.fontWeight = elState.style.fontWeight;
+      textDiv.style.fontStyle = elState.style.fontStyle;
+      textDiv.style.textDecoration = elState.style.textDecoration;
+      textDiv.style.fontSize = elState.style.fontSize;
+      
+      // Add it to the text area
+      textArea.appendChild(textDiv);
+      
+      // Re-add event listeners
+      textDiv.addEventListener('mousedown', (e) => startDrag(e, textDiv));
+      textDiv.addEventListener('focus', () => setSelectedTextBox(textDiv));
+    });
+}
   
