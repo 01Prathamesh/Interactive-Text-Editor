@@ -42,5 +42,13 @@ function startDrag(e, element) {
     offsetX = e.clientX - draggedText.offsetLeft;
     offsetY = e.clientY - draggedText.offsetTop;
     draggedText.style.cursor = 'grabbing';  // Change cursor to grabbing
-  }
+}
+  
+// Function to drag the text element
+function drag(e) {
+    if (isDragging && draggedText) {
+      draggedText.style.left = `${e.clientX - offsetX}px`;
+      draggedText.style.top = `${e.clientY - offsetY}px`;
+    }
+}
   
