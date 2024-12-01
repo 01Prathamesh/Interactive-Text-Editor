@@ -163,4 +163,17 @@ function changeStyle(style) {
       saveState(); // Save state after applying styles
     }
 }
+
+// Change the size of the text
+function changeSize() {
+    if (selectedTextBox && selectedTextBox.contentEditable === "true") {
+      let currentSize = parseInt(window.getComputedStyle(selectedTextBox).fontSize);
+      let newSize = prompt("Enter font size (in px):", currentSize);
+      
+      if (newSize) {
+        selectedTextBox.style.fontSize = `${newSize}px`;
+        saveState(); // Save state after changing font size
+      }
+    }
+}
   
