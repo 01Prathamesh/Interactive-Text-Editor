@@ -135,4 +135,15 @@ function restoreState() {
       textDiv.addEventListener('focus', () => setSelectedTextBox(textDiv));
     });
 }
+
+// Function to set the selected text box and apply styles
+function setSelectedTextBox(textDiv) {
+    if (selectedTextBox !== textDiv) {
+      if (selectedTextBox) {
+        selectedTextBox.style.border = '';  // Remove border from previously selected box
+      }
+      selectedTextBox = textDiv;
+      selectedTextBox.style.border = '2px solid blue';  // Add border to the newly selected box
+    }
+}
   
