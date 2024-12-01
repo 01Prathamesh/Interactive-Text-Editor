@@ -54,3 +54,24 @@ body {
         transform: scale(1.05);
     }
 
+    /* Text Area Styling */
+    #textArea {
+        position: relative;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        min-height: 400px;
+        width: 85%;
+        max-width: 1400px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        overflow: hidden;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    #textArea:focus-within {
+        border-color: #3b9ae1;
+        box-shadow: 0 0 8px rgba(59, 154, 225, 0.5);
+    }
+
+
