@@ -69,4 +69,12 @@ document.getElementById('undoBtn').addEventListener('click', () => {
       restoreState();
     }
 });
+
+// Redo functionality
+document.getElementById('redoBtn').addEventListener('click', () => {
+    if (currentStateIndex < textHistory.length - 1) {
+      currentStateIndex++;
+      restoreState();
+    }
+});
   
