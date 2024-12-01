@@ -146,4 +146,21 @@ function setSelectedTextBox(textDiv) {
       selectedTextBox.style.border = '2px solid blue';  // Add border to the newly selected box
     }
 }
+
+// Change Text Style (Bold, Italic, Underline)
+function changeStyle(style) {
+    if (selectedTextBox && selectedTextBox.contentEditable === "true") {
+      if (style === 'bold') {
+        selectedTextBox.style.fontWeight = selectedTextBox.style.fontWeight === 'bold' ? 'normal' : 'bold';
+      }
+      if (style === 'italic') {
+        selectedTextBox.style.fontStyle = selectedTextBox.style.fontStyle === 'italic' ? 'normal' : 'italic';
+      }
+      if (style === 'underline') {
+        selectedTextBox.style.textDecoration = selectedTextBox.style.textDecoration === 'underline' ? 'none' : 'underline';
+      }
+      
+      saveState(); // Save state after applying styles
+    }
+}
   
