@@ -1,136 +1,136 @@
 /* Body Styling */
 body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        background-color: #f0f4f8;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-    /* Navbar Styling */
-    .navbar {
-        background-color: #7cebff;
-        padding: 15px 30px;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 100;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-    }
-    .navbar button {
-        color: #fff;
-        background-color: #007bff;
-        border: none;
-        padding: 12px 25px;
-        margin: 0 12px;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    .navbar button:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
-    }
+/* Navbar Styling */
+.navbar {
+    background-color: #7cebff;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+.navbar button {
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    padding: 12px 25px;
+    margin: 0 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.navbar button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
 
-    /* Button Styling */
-    #addTextBtn {
-        padding: 12px 25px;
-        margin-top: 30px;
-        cursor: pointer;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    #addTextBtn:hover {
-        background-color: #218838;
-        transform: scale(1.05);
-    }
+/* Button Styling */
+#addTextBtn {
+    padding: 12px 25px;
+    margin-top: 30px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#addTextBtn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
 
-    /* Text Area Styling */
-    #textArea {
-        position: relative;
-        margin-top: 20px;
-        border: 1px solid #ddd;
-        min-height: 400px;
-        width: 85%;
-        max-width: 1400px;
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        padding: 25px;
-        overflow: hidden;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    #textArea:focus-within {
-        border-color: #3b9ae1;
-        box-shadow: 0 0 8px rgba(59, 154, 225, 0.5);
-    }
+/* Text Area Styling */
+#textArea {
+    position: relative;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    min-height: 400px;
+    width: 85%;
+    max-width: 1400px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+#textArea:focus-within {
+    border-color: #3b9ae1;
+    box-shadow: 0 0 8px rgba(59, 154, 225, 0.5);
+}
 
-    /* Style Options - Fixed Bottom Bar */
-    .style-options {
-        position: fixed;
-        bottom: 20px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        padding: 15px;
-        background-color: #fff;
-        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
-    }
-    .style-options button {
-        padding: 12px 25px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        font-size: 16px;
-    }
-    .style-options button:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
-    }
+/* Style Options - Fixed Bottom Bar */
+.style-options {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+}
+.style-options button {
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+}
+.style-options button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
 
-    /* Draggable Text Styling */
-    .draggable {
-        cursor: grab;
-        display: inline-block;
-        padding: 12px 18px;
-        margin: 6px;
-        background-color: #f1f1f1;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    .draggable:focus {
-        outline: 2px solid #3b9ae1;
-    }
-    .draggable:hover {
-        background-color: #e6e6e6;
-        transform: scale(1.02);
-    }
-    .draggable:active {
-        cursor: grabbing;
-        background-color: #dcdcdc;
-    }
+/* Draggable Text Styling */
+.draggable {
+    cursor: grab;
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 6px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.draggable:focus {
+    outline: 2px solid #3b9ae1;
+}
+.draggable:hover {
+    background-color: #e6e6e6;
+    transform: scale(1.02);
+}
+.draggable:active {
+    cursor: grabbing;
+    background-color: #dcdcdc;
+}
 
-    /* Button Transitions for better interactivity */
-    button {
-        transition: transform 0.2s ease;
-    }
-    button:hover {
-        transform: scale(1.05);
-    }
+/* Button Transitions for better interactivity */
+button {
+    transition: transform 0.2s ease;
+}
+button:hover {
+    transform: scale(1.05);
+}
 
 
 
