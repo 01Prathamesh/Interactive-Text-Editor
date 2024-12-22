@@ -8,20 +8,21 @@
 </head>
 <body>
   <!-- Navbar -->
-  <div class="navbar">
-    <button id="undoBtn">Undo</button>
-    <button id="redoBtn">Redo</button>
-  </div>
+  <header class="navbar">
+    <button id="undoBtn" aria-label="Undo">Undo</button>
+    <button id="redoBtn" aria-label="Redo">Redo</button>
+  </header>
 
-  <div id="textArea" style="height: 400px; border: 1px solid #000; position: relative;"></div>
-  <button id="addTextBtn">Add Text</button>
+  <!-- Text Area -->
+  <div id="textArea" contenteditable="true" role="textbox" aria-label="Text Editor"></div>
+  <button id="addTextBtn" aria-label="Add Text">Add Text</button>
 
-  <!-- Style options -->
+  <!-- Style Options -->
   <div class="style-options">
-    <button onclick="changeStyle('bold')">Bold</button>
-    <button onclick="changeStyle('italic')">Italic</button>
-    <button onclick="changeStyle('underline')">Underline</button>
-    <button onclick="changeSize()">Change Size</button>
+    <button onclick="changeStyle('bold')" aria-label="Bold">B</button>
+    <button onclick="changeStyle('italic')" aria-label="Italic">I</button>
+    <button onclick="changeStyle('underline')" aria-label="Underline">U</button>
+    <button onclick="changeSize()" aria-label="Change Font Size">A+</button>
   </div>
 
   <script src="script.js"></script>
