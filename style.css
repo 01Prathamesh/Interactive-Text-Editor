@@ -66,25 +66,32 @@ body {
     box-shadow: 0 0 8px rgba(59, 154, 225, 0.5);
 }
 
-/* Add Text Button */
-#addTextBtn {
-    padding: 12px 25px;
-    margin-top: 30px;
-    cursor: pointer;
+/* Add Text Button (FAB) */
+.fab {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
     background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 50%;
+    font-size: 36px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#addTextBtn:hover {
+.fab:hover {
     background-color: #218838;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
-/* Style Options - Fixed Bottom Bar */
+/* Style Options */
 .style-options {
     position: fixed;
     bottom: 20px;
@@ -139,13 +146,92 @@ body {
     background-color: #dcdcdc;
 }
 
-/* Button Transitions for better interactivity */
-button {
-    transition: transform 0.2s ease;
+/* Floating Toolbar */
+.floating-toolbar {
+    position: fixed;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 101;
 }
 
-button:hover {
+.floating-toolbar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.floating-toolbar button:hover {
+    background-color: #0056b3;
     transform: scale(1.05);
+}
+
+/* History Panel */
+.history-panel {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    max-height: 70%;
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    overflow-y: auto;
+    border-radius: 8px;
+    z-index: 101;
+}
+
+.history-panel h3 {
+    text-align: center;
+}
+
+.history-panel ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+    background-color: #333;
+}
+
+body.dark-mode #textArea {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+body.dark-mode .style-options button {
+    background-color: #3b3b3b;
+    color: #e0e0e0;
+}
+
+body.dark-mode .style-options button:hover {
+    background-color: #505050;
+}
+
+body.dark-mode .fab {
+    background-color: #4CAF50;
+}
+
+body.dark-mode .fab:hover {
+    background-color: #388E3C;
 }
 
 /* Responsive Design */
