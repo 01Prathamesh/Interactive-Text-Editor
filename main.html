@@ -9,22 +9,37 @@
 <body>
   <!-- Navbar -->
   <header class="navbar">
-    <button id="undoBtn" aria-label="Undo">Undo</button>
-    <button id="redoBtn" aria-label="Redo">Redo</button>
+    <button id="undoBtn" aria-label="Undo" title="Undo the last change">Undo</button>
+    <button id="redoBtn" aria-label="Redo" title="Redo the last undone change">Redo</button>
   </header>
 
   <!-- Text Area -->
-  <div id="textArea" contenteditable="true" role="textbox" aria-label="Text Editor"></div>
-  <button id="addTextBtn" aria-label="Add Text">Add Text</button>
+  <div id="textArea" contenteditable="true" role="textbox" aria-label="Text Editor" class="text-area">
+    <p>Please add text using the button below</p>
+  </div>
+
+  <!-- Add Text Button - Floating Action Button (FAB) -->
+  <button id="addTextBtn" aria-label="Add Text" title="Add a new draggable text box" class="fab">
+    <span class="add-icon">+</span>
+  </button>
 
   <!-- Style Options -->
   <div class="style-options">
-    <button onclick="changeStyle('bold')" aria-label="Bold">B</button>
-    <button onclick="changeStyle('italic')" aria-label="Italic">I</button>
-    <button onclick="changeStyle('underline')" aria-label="Underline">U</button>
-    <button onclick="changeSize()" aria-label="Change Font Size">A+</button>
+    <button onclick="changeStyle('bold')" aria-label="Bold" title="Toggle Bold" class="style-btn">B</button>
+    <button onclick="changeStyle('italic')" aria-label="Italic" title="Toggle Italic" class="style-btn">I</button>
+    <button onclick="changeStyle('underline')" aria-label="Underline" title="Toggle Underline" class="style-btn">U</button>
+    <button onclick="changeSize()" aria-label="Change Font Size" title="Change Font Size" class="style-btn">A+</button>
+  </div>
+
+  <!-- Optional Floating Toolbar for Selected Text (appears when text box is selected) -->
+  <div id="floatingToolbar" class="floating-toolbar" style="display: none;">
+    <button onclick="changeStyle('bold')" aria-label="Bold" title="Bold" class="style-btn">B</button>
+    <button onclick="changeStyle('italic')" aria-label="Italic" title="Italic" class="style-btn">I</button>
+    <button onclick="changeStyle('underline')" aria-label="Underline" title="Underline" class="style-btn">U</button>
+    <button onclick="changeSize()" aria-label="Change Font Size" title="Change Font Size" class="style-btn">A+</button>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
