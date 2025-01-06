@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Text Editor</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- Navbar -->
   <header class="navbar">
     <button id="undoBtn" aria-label="Undo" title="Undo the last change">Undo</button>
     <button id="redoBtn" aria-label="Redo" title="Redo the last undone change">Redo</button>
+    <button id="saveBtn" aria-label="Save" title="Save your work">Save</button>
+    <button id="loadBtn" aria-label="Load" title="Load previously saved work">Load</button>
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Switch between light and dark mode">🌙</button>
   </header>
 
   <!-- Text Area -->
@@ -29,6 +34,12 @@
     <button onclick="changeStyle('italic')" aria-label="Italic" title="Toggle Italic" class="style-btn">I</button>
     <button onclick="changeStyle('underline')" aria-label="Underline" title="Toggle Underline" class="style-btn">U</button>
     <button onclick="changeSize()" aria-label="Change Font Size" title="Change Font Size" class="style-btn">A+</button>
+    <button onclick="changeFont()" aria-label="Change Font Family" title="Change Font Family" class="style-btn">Aa</button>
+    <button onclick="changeTextColor()" aria-label="Change Text Color" title="Change Text Color" class="style-btn">🎨</button>
+    <button onclick="changeBackgroundColor()" aria-label="Change Background Color" title="Change Background Color" class="style-btn">🖍️</button>
+    <button onclick="alignText('left')" aria-label="Align Left" title="Align Text Left" class="style-btn">L</button>
+    <button onclick="alignText('center')" aria-label="Align Center" title="Align Text Center" class="style-btn">C</button>
+    <button onclick="alignText('right')" aria-label="Align Right" title="Align Text Right" class="style-btn">R</button>
   </div>
 
   <!-- Optional Floating Toolbar for Selected Text (appears when text box is selected) -->
@@ -37,7 +48,19 @@
     <button onclick="changeStyle('italic')" aria-label="Italic" title="Italic" class="style-btn">I</button>
     <button onclick="changeStyle('underline')" aria-label="Underline" title="Underline" class="style-btn">U</button>
     <button onclick="changeSize()" aria-label="Change Font Size" title="Change Font Size" class="style-btn">A+</button>
+    <button onclick="changeFont()" aria-label="Change Font Family" title="Change Font Family" class="style-btn">Aa</button>
   </div>
+
+  <!-- History Panel (Undo/Redo history) -->
+  <div id="historyPanel" class="history-panel" style="display: none;">
+    <h3>Undo History</h3>
+    <ul id="historyList"></ul>
+  </div>
+
+  <!-- Export & Save as PDF Button -->
+  <button id="exportPdfBtn" aria-label="Export as PDF" title="Export your work as a PDF" class="style-btn">
+    Export PDF
+  </button>
 
   <script src="script.js"></script>
 </body>
