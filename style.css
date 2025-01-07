@@ -120,6 +120,17 @@ body {
     transform: scale(1.05);
 }
 
+/* Word and Character Count Styling */
+.count-panel {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.count-panel span {
+    font-weight: bold;
+}
+
 /* Draggable Text Styling */
 .draggable {
     cursor: grab;
@@ -257,5 +268,33 @@ body.dark-mode .fab:hover {
     .style-options button {
         font-size: 14px;
         padding: 10px 18px;
+    }
+}
+
+/* Word and Character Count in Dark Mode */
+body.dark-mode .count-panel {
+    color: #e0e0e0;
+}
+
+/* Print Button */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    .navbar, .fab, .style-options {
+        display: none;
+    }
+
+    #textArea {
+        margin-top: 0;
+        padding: 10px;
+        border: none;
+        box-shadow: none;
+    }
+
+    .count-panel {
+        display: none;
     }
 }
