@@ -5,6 +5,8 @@ let draggedText = null;
 let offsetX, offsetY;
 let selectedTextBox = null;
 let isDarkMode = false;
+let wordCount = 0;
+let charCount = 0;
 
 // Function to toggle dark mode
 document.getElementById('darkModeToggle').addEventListener('click', () => {
@@ -87,6 +89,59 @@ function changeBackgroundColor() {
   saveState();
 }
 
+// Align text (left, center, right, justify)
+function alignText(align) {
+  document.getElementById('textArea').style.textAlign = align;
+  saveState();
+}
+
+// Highlight selected text
+function highlightText() {
+  const selection = window.getSelection();
+  if (!selection.rangeCount) return;
+  
+  const range = selection.getRangeAt(0);
+  const span = document.createElement("span");
+  span.style.backgroundColor = "yellow";  // Set highlight color
+  range.surroundContents(span);
+  saveState();
+}
+
+// Toggle Case (Uppercase/Lowercase)
+function toggleCase() {
+  const selection = window.getSelection();
+  if (!selection.rangeCount) return;
+  
+  const range = selection.getRangeAt(0);
+  const selectedText = range.toString();
+  const transformedText = selectedText === selectedText.toUpperCase()
+    ? selectedText.toLowerCase()
+    : selectedText.toUpperCase();
+  
+  range.deleteContents();
+  range.insertNode(document.createTextNode(transformedText));
+  saveState();
+}
+
+// Clear all content from the editor
+document.getElementById("clearBtn").addEventListener("click", function() {
+  document.getElementById("textArea").innerHTML = '';
+  updateWordCount();
+  updateCharCount();
+  saveState();
+});
+
+// Print content of the editor
+document.getElementById("printBtn").addEventListener("click", function() {
+  const content = document.getElementById("textArea").innerHTML;
+  const printWindow = window.open('', '', 'height=600,width=800');
+  printWindow.document.write('<html><head><title>Print</title></head><body>');
+  printWindow.document.write(content);
+  printWindow.document.write('</body></html>');
+  printWindow.document.close();
+  printWindow.print();
+});
+
 // Undo and Redo functionality
 document.getElementById('undoBtn').addEventListener('click', () => {
   if (currentStateIndex > 0) {
@@ -107,11 +162,29 @@ function saveState() {
   textHistory = textHistory.slice(0, currentStateIndex + 1); // Remove future redo states
   textHistory.push(document.getElementById('textArea').innerHTML);
   currentStateIndex++;
+  updateWordCount();
+  updateCharCount();
 }
 
 // Restore a saved state
 function restoreState() {
   document.getElementById('textArea').innerHTML = textHistory[currentStateIndex];
+  updateWordCount();
+  updateCharCount();
+}
+
+// Update Word Count
+function updateWordCount() {
+  const text = document.getElementById("textArea").innerText.trim();
+  wordCount = text ? text.split(/\s+/).length : 0;
+  document.getElementById("wordCount").textContent = `Words: ${wordCount}`;
+}
+
+// Update Character Count
+function updateCharCount() {
+  const text = document.getElementById("textArea").innerText;
+  charCount = text.length;
+  document.getElementById("charCount").textContent = `Characters: ${charCount}`;
 }
 
 // Export as PDF
@@ -119,4 +192,10 @@ document.getElementById('exportPdfBtn').addEventListener('click', () => {
   const doc = new jsPDF();
   doc.text(document.getElementById('textArea').innerText, 10, 10);
   doc.save('document.pdf');
+});
+
+// Event listener to update word/char count on typing
+document.getElementById("textArea").addEventListener("input", function() {
+  updateWordCount();
+  updateCharCount();
 });
