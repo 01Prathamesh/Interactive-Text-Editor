@@ -11,6 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
+    transition: background-color 0.3s ease;
 }
 
 /* Navbar Styling */
@@ -25,6 +26,7 @@ body {
     display: flex;
     justify-content: center;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
 }
 
 .navbar button {
@@ -37,6 +39,7 @@ body {
     border-radius: 8px;
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
 }
 
 .navbar button:hover {
@@ -47,7 +50,7 @@ body {
 /* Text Area Styling */
 #textArea {
     position: relative;
-    margin-top: 80px; /* Space for fixed navbar */
+    margin-top: 80px;
     width: 90%;
     max-width: 1200px;
     min-height: 400px;
@@ -58,7 +61,8 @@ body {
     border: 1px solid #ddd;
     overflow-y: auto;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    resize: both; /* Allow resizing */
+    resize: both;
+    scroll-behavior: smooth;
 }
 
 #textArea:focus-within {
@@ -83,12 +87,13 @@ body {
     align-items: center;
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .fab:hover {
     background-color: #218838;
     transform: scale(1.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
 }
 
 /* Style Options */
@@ -102,6 +107,7 @@ body {
     padding: 15px;
     background-color: #fff;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
 }
 
 .style-options button {
@@ -111,13 +117,15 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     font-size: 18px;
+    text-transform: uppercase;
 }
 
 .style-options button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Word and Character Count Styling */
@@ -125,10 +133,12 @@ body {
     margin-top: 20px;
     font-size: 14px;
     color: #555;
+    font-weight: 600;
 }
 
 .count-panel span {
     font-weight: bold;
+    color: #007bff;
 }
 
 /* Draggable Text Styling */
@@ -140,7 +150,7 @@ body {
     background-color: #f1f1f1;
     border: 1px solid #ddd;
     border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .draggable:focus {
@@ -150,6 +160,7 @@ body {
 .draggable:hover {
     background-color: #e6e6e6;
     transform: scale(1.02);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .draggable:active {
@@ -180,12 +191,13 @@ body {
     border-radius: 8px;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .floating-toolbar button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* History Panel */
@@ -202,10 +214,12 @@ body {
     overflow-y: auto;
     border-radius: 8px;
     z-index: 101;
+    animation: slideIn 0.3s ease-out;
 }
 
 .history-panel h3 {
     text-align: center;
+    color: #007bff;
 }
 
 .history-panel ul {
@@ -243,6 +257,24 @@ body.dark-mode .fab {
 
 body.dark-mode .fab:hover {
     background-color: #388E3C;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 /* Responsive Design */
@@ -296,5 +328,17 @@ body.dark-mode .count-panel {
 
     .count-panel {
         display: none;
+    }
+}
+
+/* Keyframe Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
