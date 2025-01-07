@@ -16,6 +16,8 @@
     <button id="saveBtn" aria-label="Save" title="Save your work">Save</button>
     <button id="loadBtn" aria-label="Load" title="Load previously saved work">Load</button>
     <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Switch between light and dark mode">🌙</button>
+    <button id="clearBtn" aria-label="Clear Content" title="Clear all text">Clear</button>
+    <button id="printBtn" aria-label="Print" title="Print your document">🖨️</button>
   </header>
 
   <!-- Text Area -->
@@ -40,6 +42,9 @@
     <button onclick="alignText('left')" aria-label="Align Left" title="Align Text Left" class="style-btn">L</button>
     <button onclick="alignText('center')" aria-label="Align Center" title="Align Text Center" class="style-btn">C</button>
     <button onclick="alignText('right')" aria-label="Align Right" title="Align Text Right" class="style-btn">R</button>
+    <button onclick="alignText('justify')" aria-label="Justify Text" title="Justify Text" class="style-btn">J</button>
+    <button onclick="highlightText()" aria-label="Highlight Text" title="Highlight Selected Text" class="style-btn">🟨</button>
+    <button onclick="toggleCase()" aria-label="Toggle Case" title="Toggle Uppercase/Lowercase" class="style-btn">🔡</button>
   </div>
 
   <!-- Optional Floating Toolbar for Selected Text (appears when text box is selected) -->
@@ -61,6 +66,12 @@
   <button id="exportPdfBtn" aria-label="Export as PDF" title="Export your work as a PDF" class="style-btn">
     Export PDF
   </button>
+
+  <!-- Word & Character Count -->
+  <div id="stats" class="stats">
+    <span id="wordCount">Words: 0</span>
+    <span id="charCount">Characters: 0</span>
+  </div>
 
   <script src="script.js"></script>
 </body>
