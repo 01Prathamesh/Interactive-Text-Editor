@@ -199,3 +199,27 @@ document.getElementById("textArea").addEventListener("input", function() {
   updateWordCount();
   updateCharCount();
 });
+
+// Get the speech button and the text area
+const speechBtn = document.getElementById('speechBtn');
+const textArea = document.getElementById('textArea');
+
+// Add event listener to the speech button
+speechBtn.addEventListener('click', function () {
+  const text = textArea.innerText; // Get the text from the text area
+
+  if (text.trim() === '') {
+    alert('There is no text to read aloud.');
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(text); // Create the speech utterance
+  utterance.lang = 'en-US'; // Set the language to English (US)
+
+  // You can adjust more properties of the speech utterance, like pitch or rate
+  utterance.pitch = 1; // Set pitch (0 to 2)
+  utterance.rate = 1; // Set speaking rate (0.1 to 10)
+
+  // Speak the text
+  speechSynthesis.speak(utterance);
+});
