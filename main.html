@@ -9,64 +9,62 @@
 </head>
 
 <body>
-  <!-- Navbar -->
+  <!-- Navbar for Editor Controls -->
   <header class="navbar">
-    <button id="undoBtn" aria-label="Undo" title="Undo the last change">Undo</button>
-    <button id="redoBtn" aria-label="Redo" title="Redo the last undone change">Redo</button>
-    <button id="saveBtn" aria-label="Save" title="Save your work">Save</button>
-    <button id="loadBtn" aria-label="Load" title="Load previously saved work">Load</button>
-    <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Switch between light and dark mode">🌙</button>
-    <button id="clearBtn" aria-label="Clear Content" title="Clear all text">Clear</button>
-    <button id="printBtn" aria-label="Print" title="Print your document">🖨️</button>
-    <button id="speechBtn" aria-label="Text to Speech" title="Listen to the text" class="style-btn">🎤</button> <!-- New Button for Text-to-Speech -->
+    <button id="undoBtn" aria-label="Undo the last change" title="Undo">Undo</button>
+    <button id="redoBtn" aria-label="Redo the last undone change" title="Redo">Redo</button>
+    <button id="saveBtn" aria-label="Save your work" title="Save">Save</button>
+    <button id="loadBtn" aria-label="Load saved work" title="Load">Load</button>
+    <button id="darkModeToggle" aria-label="Toggle Dark Mode" title="Switch between Light/Dark mode">🌙</button>
+    <button id="clearBtn" aria-label="Clear all text" title="Clear Text">Clear</button>
+    <button id="printBtn" aria-label="Print the document" title="Print">🖨️</button>
+    <button id="speechBtn" aria-label="Listen to the text" title="Text-to-Speech">🎤</button>
   </header>
 
-  <!-- Text Area -->
+  <!-- Editable Text Area -->
   <div id="textArea" contenteditable="true" role="textbox" aria-label="Text Editor" class="text-area">
-    <p>Please add text using the button below</p>
+    <p>Start typing your content here...</p>
   </div>
 
-  <!-- Add Text Button - Floating Action Button (FAB) -->
-  <button id="addTextBtn" aria-label="Add Text" title="Add a new draggable text box" class="fab">
+  <!-- Add Text Button -->
+  <button id="addTextBtn" aria-label="Add new text box" title="Add Text" class="fab">
     <span class="add-icon">+</span>
   </button>
 
   <!-- Style Options -->
   <div class="style-options">
-    <button onclick="changeStyle('bold')" aria-label="Bold" title="Toggle Bold" class="style-btn">B</button>
-    <button onclick="changeStyle('italic')" aria-label="Italic" title="Toggle Italic" class="style-btn">I</button>
-    <button onclick="changeStyle('underline')" aria-label="Underline" title="Toggle Underline" class="style-btn">U</button>
-    <button onclick="changeSize()" aria-label="Change Font Size" title="Change Font Size" class="style-btn">A+</button>
-    <button onclick="changeFont()" aria-label="Change Font Family" title="Change Font Family" class="style-btn">Aa</button>
-    <button onclick="changeTextColor()" aria-label="Change Text Color" title="Change Text Color" class="style-btn">🎨</button>
-    <button onclick="changeBackgroundColor()" aria-label="Change Background Color" title="Change Background Color" class="style-btn">🖍️</button>
-    <button onclick="alignText('left')" aria-label="Align Left" title="Align Text Left" class="style-btn">L</button>
-    <button onclick="alignText('center')" aria-label="Align Center" title="Align Text Center" class="style-btn">C</button>
-    <button onclick="alignText('right')" aria-label="Align Right" title="Align Text Right" class="style-btn">R</button>
-    <button onclick="alignText('justify')" aria-label="Justify Text" title="Justify Text" class="style-btn">J</button>
-    <button onclick="highlightText()" aria-label="Highlight Text" title="Highlight Selected Text" class="style-btn">🟨</button>
-    <button onclick="toggleCase()" aria-label="Toggle Case" title="Toggle Uppercase/Lowercase" class="style-btn">🔡</button>
+    <button onclick="changeStyle('bold')" aria-label="Make text bold" title="Bold">B</button>
+    <button onclick="changeStyle('italic')" aria-label="Italicize text" title="Italic">I</button>
+    <button onclick="changeStyle('underline')" aria-label="Underline text" title="Underline">U</button>
+    <button onclick="changeSize()" aria-label="Change text size" title="Font Size">A+</button>
+    <button onclick="changeFont()" aria-label="Change text font" title="Font Style">Aa</button>
+    <button onclick="changeTextColor()" aria-label="Change text color" title="Text Color">🎨</button>
+    <button onclick="changeBackgroundColor()" aria-label="Change background color" title="Background Color">🖍️</button>
+    <button onclick="alignText('left')" aria-label="Align text to the left" title="Align Left">L</button>
+    <button onclick="alignText('center')" aria-label="Align text to the center" title="Align Center">C</button>
+    <button onclick="alignText('right')" aria-label="Align text to the right" title="Align Right">R</button>
+    <button onclick="alignText('justify')" aria-label="Justify text" title="Justify">J</button>
+    <button onclick="highlightText()" aria-label="Highlight text" title="Highlight">🟨</button>
+    <button onclick="toggleCase()" aria-label="Toggle text case" title="Toggle Case">🔡</button>
   </div>
 
-  <!-- Optional Floating Toolbar for Selected Text (appears when text box is selected) -->
+  <!-- Floating Toolbar -->
   <div id="floatingToolbar" class="floating-toolbar" style="display: none;">
-    <button onclick="changeStyle('bold')" aria-label="Bold" title="Bold" class="style-btn">B</button>
-    <button onclick="changeStyle('italic')" aria-label="Italic" title="Italic" class="style-btn">I</button>
-    <button onclick="changeStyle('underline')" aria-label="Underline" title="Underline" class="style-btn">U</button>
-    <button onclick="changeSize()" aria-label="Change Font Size" title="Change Font Size" class="style-btn">A+</button>
-    <button onclick="changeFont()" aria-label="Change Font Family" title="Change Font Family" class="style-btn">Aa</button>
+    <button onclick="changeStyle('bold')" aria-label="Bold" title="Bold">B</button>
+    <button onclick="changeStyle('italic')" aria-label="Italic" title="Italic">I</button>
+    <button onclick="changeStyle('underline')" aria-label="Underline" title="Underline">U</button>
+    <button onclick="changeSize()" aria-label="Change font size" title="Font Size">A+</button>
+    <button onclick="changeFont()" aria-label="Change font style" title="Font Style">Aa</button>
   </div>
 
-  <!-- History Panel (Undo/Redo history) -->
+  <!-- History Panel -->
   <div id="historyPanel" class="history-panel" style="display: none;">
     <h3>Undo History</h3>
     <ul id="historyList"></ul>
   </div>
 
-  <!-- Export & Save as PDF Button -->
-  <button id="exportPdfBtn" aria-label="Export as PDF" title="Export your work as a PDF" class="style-btn">
-    Export PDF
-  </button>
+  <!-- Export as PDF Button -->
+  <button id="exportPdfBtn" aria-label="Export document as PDF" title="Export PDF">Export PDF</button>
 
   <!-- Word & Character Count -->
   <div id="stats" class="stats">
